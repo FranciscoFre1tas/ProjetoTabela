@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastro Turma de Reforço Autoria Web</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="desenvolvedores.html">Desenvolvedores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Formulário de Cadastro</h2>
+            <form id="cadastroForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <button type="button" onclick="adicionarRegistro()">Entrar</button>
+            </form>
+        </section>
+        <section>
+            <h2>Lista de Usuários</h2>
+            <table>
+                <caption>Usuários Cadastrados</caption>
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th><button onclick="sortTable(0)">Nome</button></th>
+                            <th><button onclick="sortTable(1)">Email</button></th>
+                        </tr>
+                    </thead>                
+                <tbody id="tabelaUsuarios">
+                    <tr><td>Felipe Dantas</td><td>felipe@email.com</td></tr>
+                    <tr><td>José Adailton</td><td>adailton@email.com</td></tr>
+                    <tr><td>Enrico Rodrigues</td><td>enrico@email.com</td></tr>
+                    <tr><td>Lucas Gabriel</td><td>lucas@email.com</td></tr>
+                    <tr><td>Joyce Karenyne</td><td>joyce@email.com</td></tr>
+                    <tr><td>Breno Ferreira</td><td>breno@email.com</td></tr>
+                    <tr><td>Marcelo Júnior</td><td>marcelo@email.com</td></tr>
+                    <tr><td>Juliana Mendes</td><td>juliana@email.com</td></tr>
+                    <tr><td>Douglas Santos</td><td>douglas@email.com</td></tr>
+                    <tr><td>Vanessa Costa</td><td>vanessa@email.com</td></tr>
+
+                </tbody>
+            </table>
+            <script>
+                function sortTable(columnIndex) {
+                    let table = document.getElementById("userTable");
+                    let rows = Array.from(table.rows).slice(1);
+                    let sortedRows = rows.sort((rowA, rowB) => {
+                        let cellA = rowA.cells[columnIndex].innerText.toLowerCase();
+                        let cellB = rowB.cells[columnIndex].innerText.toLowerCase();
+                        return cellA.localeCompare(cellB);
+                    });
+                    
+                    table.tBodies[0].append(...sortedRows);
+                }
+                </script>
+        </section>
+    </main>
+    <footer>
+        <p>IFRN campus Santa Cruz</p>
+        <p>Trabalho de Autoria Web</p>
+        <p>Prof. Marcelo Figueiredo Barbosa Júnior</p>
+        <p>Desenvolvido por: Francisco Freitas, Amanda Pabline e João Henrique</p>
+
+        <p>3 dias fazendo isso em marcelo</p>
+    </footer>
+    <script src="registro.js"></script>
+</body>
+</html>
